@@ -1,3 +1,5 @@
+//DEAL WITH UNHANDLED REJECTIONS!!!
+
 const isElementPresent = async function(elementSelector){
     const elementsArray = await browser.execute(function(){
         return document.querySelectorAll(arguments[0])

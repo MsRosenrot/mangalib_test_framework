@@ -3,15 +3,22 @@ import { expect, $ } from '@wdio/globals';
 import { mainPage } from '../pageobjects/mainPage.js';
 import { header } from '../pageobjects/components/header.js';
 import loginPage from '../pageobjects/login.page.js';
+import { users } from '../pageobjects/helpers/constants.js';
 
 Given(/^I navigate to (.*)$/, async (url) => {
     await mainPage.navigate(url);
         // await browser.waitUntil(() => browser.execute(() => document.readyState === 'complete'));
 })
 
-Given(/^I login with login:(.*) and password:(.*)$/, async(login, password)=>{
-    await mainPage.clickPageButton(header.enterAccountBtn)
-    await loginPage.login(login, password)
+Given(/^I login with (valid|invalid) credentials$/, async(credentials)=>{
+    if(credentials === 'valid'){
+        await mainPage.clickPageButton(header.enterAccountBtn)
+        await loginPage.login(users.validLogin, users.validPassword)
+    } else {
+        await mainPage.clickPageButton(header.enterAccountBtn)
+        await loginPage.login(users.invalidLogin, users.invalidPassword)
+    }
+    
 })
 
 Given(/^I log out$/, async()=>{
