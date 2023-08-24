@@ -14,6 +14,10 @@ Given(/^I login with login:(.*) and password:(.*)$/, async(login, password)=>{
     await loginPage.login(login, password)
 })
 
+Given(/^I log out$/, async()=>{
+    await mainPage.clickPageButton(header.profileIconElement)
+    await header.logout()
+})
 
 
 

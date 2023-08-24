@@ -29,8 +29,9 @@ export const config = {
         './features/**/UI.feature',
         './features/**/search.feature',
         './features/**/navigation.feature',
-        './features/**/logout.feature',
-        './features/**/interactionWithTitle.feature'
+        // './features/**/login.feature',
+        './features/**/interactionWithTitle.feature',
+        
     ],
     //
     // ============
