@@ -28,9 +28,10 @@ export const config = {
     exclude: [
         './features/**/UI.feature',
         './features/**/search.feature',
-        './features/**/navigation.feature',
-        './features/**/login.feature',
-        './features/**/logout.feature',
+        // './features/**/navigation.feature',
+        // './features/**/login.feature',
+        // './features/**/logout.feature',
+        // './features/**/mangaAPI.feature',
         './features/**/interactionWithTitle.feature',
         
     ],
@@ -91,7 +92,7 @@ export const config = {
     // Define all options that are relevant for the WebdriverIO instance here
     //
     // Level of logging verbosity: trace | debug | info | warn | error | silent
-    logLevel: 'info',
+    logLevel: 'error',
     //
     // Set specific log levels per logger
     // loggers:

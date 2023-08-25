@@ -20,5 +20,5 @@ Examples:
 | https://mangalib.org/search?type=manga&q=boss                                          | searchMangaSchema        |
 | https://mangalib.org/api/v2/comments?type=manga&post_id=53591&order=latest             | seeCommentsSchema        |
 | https://mangalib.org/manga-short-info?slug=adabana&id=33052&advanced_info=1&type=manga | mangaShortInfoSchema     |
-# | https://mangalib.org/api/v2/comments?type=manga&order=latest               | invalidSeeCommentsSchema |
+
 

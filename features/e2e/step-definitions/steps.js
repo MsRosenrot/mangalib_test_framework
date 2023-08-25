@@ -10,6 +10,24 @@ Given(/^I navigate to (.*)$/, async (url) => {
         // await browser.waitUntil(() => browser.execute(() => document.readyState === 'complete'));
 })
 
+Given(/^I navigate at different domain: (RanobeLib|AnimeLib)$/, async(site)=>{
+    await header.navigateToOtherSite(site)
+})
+Given(/^I click main menu tab: (.*)$/, async(tab)=>{
+    if(tab === 'Forum'){
+        await mainPage.clickPageButton(header.forumBtn)
+    } else if(tab === 'FAQ'){
+        await mainPage.clickPageButton(header.FAQBtn)
+    }
+    
+})
+Given(/^I select Popular Manga poster №(\d)$/, async function(position){
+    const world = this
+    const mangaToSelect = mainPage.popularMangaList[position]
+    world.mangaName = await mangaToSelect.getText()
+    await mainPage.clickPageButton(mangaToSelect)
+})
+
 Given(/^I login with (valid|invalid) credentials$/, async(credentials)=>{
     if(credentials === 'valid'){
         await mainPage.clickPageButton(header.enterAccountBtn)
@@ -19,6 +37,10 @@ Given(/^I login with (valid|invalid) credentials$/, async(credentials)=>{
         await loginPage.login(users.invalidLogin, users.invalidPassword)
     }
     
+})
+
+Given(/^I open News page from Main Page$/, async()=>{
+    await mainPage.clickPageButton(mainPage.openAllNewsBtn)
 })
 
 Given(/^I log out$/, async()=>{
