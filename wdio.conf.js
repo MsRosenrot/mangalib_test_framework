@@ -22,14 +22,15 @@ export const config = {
     // will be called from there.
     //
     specs: [
-        './features/**/*.feature'
+        './features/**/*.feature',
     ],
     // Patterns to exclude.
     exclude: [
         './features/**/UI.feature',
         './features/**/search.feature',
         './features/**/navigation.feature',
-        // './features/**/login.feature',
+        './features/**/login.feature',
+        './features/**/logout.feature',
         './features/**/interactionWithTitle.feature',
         
     ],
@@ -90,7 +91,7 @@ export const config = {
     // Define all options that are relevant for the WebdriverIO instance here
     //
     // Level of logging verbosity: trace | debug | info | warn | error | silent
-    logLevel: 'error',
+    logLevel: 'info',
     //
     // Set specific log levels per logger
     // loggers:
@@ -161,7 +162,8 @@ export const config = {
         // <string[]> (file/dir) require files before executing features
         require: [
             './features/e2e/step-definitions/steps.js', 
-            './features/e2e/step-definitions/assertions.js'
+            './features/e2e/step-definitions/assertions.js',
+            './features/API/step-definitions/*.js'
         ],
         // <boolean> show full backtrace for errors
         backtrace: false,
