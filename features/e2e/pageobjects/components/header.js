@@ -17,6 +17,9 @@ get forumBtn(){
 get FAQBtn(){
   return $('a[title="Ответы на часто задаваемые вопросы"]')
 }
+get searchBtn(){
+  return $('#search-link')
+}
 get mainMenuTabs(){
   return $$('.header-menu__item')
 }
@@ -65,8 +68,8 @@ async getOtherMainMenuTabs(){
       } else if(site === 'AnimeLib'){
         await this.otherSitesTabs[1].click()
       }
-
-   }
+  }
+  
 }
 
 const header = new Header()

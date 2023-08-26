@@ -4,6 +4,7 @@ import { mainPage } from '../pageobjects/mainPage.js';
 import { header } from '../pageobjects/components/header.js';
 import loginPage from '../pageobjects/login.page.js';
 import { users, devices } from '../pageobjects/helpers/constants.js';
+import { searchWindow } from '../pageobjects/components/searchWindow.js';
 
 Given(/^I navigate to (.*)$/, async (url) => {
     await mainPage.navigate(url);
@@ -58,6 +59,12 @@ Given(/^I click change color theme button$/, async()=>{
 Given(/^I log out$/, async()=>{
     await mainPage.clickPageButton(header.profileIconElement)
     await header.logout()
+})
+Given(/^I search for (.*): (.*)$/, async(searchBy, searchEntry)=>{
+    await searchWindow.search(searchEntry,searchBy)
+})
+Given(/^I click '(.*)' element$/, async(selector)=>{
+    await mainPage.clickPageButton($(selector))
 })
 
 

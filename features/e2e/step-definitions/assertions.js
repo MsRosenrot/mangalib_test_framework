@@ -2,15 +2,23 @@ import { Then } from "@wdio/cucumber-framework";
 import { expect } from 'chai';
 import loginPage from "../pageobjects/login.page.js";
 import { mainPage } from "../pageobjects/mainPage.js";
-import { isElementPresent } from "../pageobjects/helpers/isElementPresentFunc.js";
 import { header } from "../pageobjects/components/header.js";
 import { mangaDetailsPage } from "../pageobjects/mangaDetails.page.js"
 import { newsPage } from "../pageobjects/newsPage.js";
+import { searchWindow } from "../pageobjects/components/searchWindow.js";
 
 
-Then(/^I expect error message text to be "(.*)"$/, async(errorMsg)=>{
-    await expect(await loginPage.loginErrorMsg).to.equal(errorMsg)
+Then(/^I expect (login|search) error message text to be "(.*)"$/, async(flow, errorMsg)=>{
+    let actualResult
+    if(flow === 'login'){
+        actualResult = await loginPage.loginErrorMsg
+    } else if(flow === 'search'){
+        actualResult = await searchWindow.searchErrorMsg
+    }
+    await expect(actualResult).to.equal(errorMsg)
+    
 })
+
 Then(/^I expect to be logged in$/, async ()=>{
     header.checkIsLoggedIn()
 })
@@ -20,12 +28,15 @@ Then(/^I expect user to be logged out of the account$/, async()=>{
 Then(/^I expect (.*) site url to contain text: (.*)$/, async(domain, text)=>{
     await expect(await browser.getUrl()).to.have.string(text)
 })
-// Then(/^I expect page title to contain correct text(.*)?$/, async()=>{
-
-// })
-Then(/^I expect page title to contain selected manga name$/, async function(){
+Then(/^I expect page title to contain (.*)$/, async function(title){
+    let expectedTitle
+    if(title === 'selected manga name'){
     const world = this
-    expect(await mangaDetailsPage.mangaName).to.be.equal(world.mangaName)
+    expectedTitle = world.mangaName
+    } else {
+        expectedTitle = title
+    }
+    expect(await mangaDetailsPage.mangaName).to.contain(expectedTitle)
 })
 Then(/^I expect page title to be "(.*)"$/, async(expectedTitle)=>{
     let actualTitle
@@ -72,4 +83,12 @@ Then(/^I expect element (.*) to (be|not be) displayed$/, async(element, isDispla
     } else {
         expect(await $(element).isClickable()).to.be.false
     }
+})
+Then(/^I expect '(.*)' element placeholder to (equal|contain): '(.*)'$/, async(selector, typeOfComparison, placeholderText)=>{
+    $(selector).waitForClickable()
+ if(typeOfComparison === 'equal'){
+    expect(await $(selector).getAttribute('placeholder')).to.equal(placeholderText)
+ } else{
+    expect(await $(selector).getAttribute('placeholder')).to.contain(placeholderText)
+ }
 })
