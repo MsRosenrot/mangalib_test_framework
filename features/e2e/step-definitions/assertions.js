@@ -6,6 +6,8 @@ import { header } from "../pageobjects/components/header.js";
 import { mangaDetailsPage } from "../pageobjects/mangaDetails.page.js"
 import { newsPage } from "../pageobjects/newsPage.js";
 import { searchWindow } from "../pageobjects/components/searchWindow.js";
+import { isElementPresent } from "../pageobjects/helpers/isElementPresentFunc.js";
+import { readMangaPage } from "../pageobjects/readManga.page.js";
 
 
 Then(/^I expect (login|search) error message text to be "(.*)"$/, async(flow, errorMsg)=>{
@@ -25,7 +27,7 @@ Then(/^I expect to be logged in$/, async ()=>{
 Then(/^I expect user to be logged out of the account$/, async()=>{
      header.checkIsLoggedOut()
 })
-Then(/^I expect (.*) site url to contain text: (.*)$/, async(domain, text)=>{
+Then(/^I expect (.*)? ?site url to contain text: (.*)$/, async(domain, text)=>{
     await expect(await browser.getUrl()).to.have.string(text)
 })
 Then(/^I expect page title to contain (.*)$/, async function(title){
@@ -91,4 +93,7 @@ Then(/^I expect '(.*)' element placeholder to (equal|contain): '(.*)'$/, async(s
  } else{
     expect(await $(selector).getAttribute('placeholder')).to.contain(placeholderText)
  }
+})
+Then(/^I expect Reader mode page to open$/, async()=>{
+    expect(await isElementPresent('.reader-view')).to.be.true
 })

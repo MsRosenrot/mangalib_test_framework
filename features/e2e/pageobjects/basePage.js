@@ -8,6 +8,7 @@ class BasePage{
         await button.click();
         // await browser.execute(() => document.readyState === 'complete');
       }
+    
 }
 
 export { BasePage }

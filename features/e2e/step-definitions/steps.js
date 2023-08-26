@@ -5,6 +5,8 @@ import { header } from '../pageobjects/components/header.js';
 import loginPage from '../pageobjects/login.page.js';
 import { users, devices } from '../pageobjects/helpers/constants.js';
 import { searchWindow } from '../pageobjects/components/searchWindow.js';
+import { mangaDetailsPage } from '../pageobjects/mangaDetails.page.js';
+import { readMangaPage } from '../pageobjects/readManga.page.js';
 
 Given(/^I navigate to (.*)$/, async (url) => {
     await mainPage.navigate(url);
@@ -66,6 +68,15 @@ Given(/^I search for (.*): (.*)$/, async(searchBy, searchEntry)=>{
 Given(/^I click '(.*)' element$/, async(selector)=>{
     await mainPage.clickPageButton($(selector))
 })
+Given(/^I start reading title (.*)$/, async(url)=>{
+    await mangaDetailsPage.startReadingManga(url)
+})
+When(/^I navigate chapters: (\d) chapters (forward|back)$/, async(numOfChapters, forwardOrBack)=>{
+    for(let i=1; i<=numOfChapters; i++){
+        await readMangaPage.navigateChapter(forwardOrBack)
+    }
+})
+
 
 
 
