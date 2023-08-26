@@ -17,6 +17,13 @@ get forumBtn(){
 get FAQBtn(){
   return $('a[title="Ответы на часто задаваемые вопросы"]')
 }
+get mainMenuTabs(){
+  return $$('.header-menu__item')
+}
+async getOtherMainMenuTabs(){
+  await $('.header-menu__item:last-of-type').click()
+  return $$('.menu.header-dropdown a')
+}
 
 // Right side
 
@@ -35,6 +42,9 @@ get FAQBtn(){
     get logoutBtn(){
         return $('#logout-button')
       }
+  get changeColorThemeBtn(){
+    return $('.header-right-menu__item.dropdown.header-button')
+  }
     async logout(){
         await this.logoutBtn.waitForDisplayed();
         await this.logoutBtn.click();

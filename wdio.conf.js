@@ -26,12 +26,12 @@ export const config = {
     ],
     // Patterns to exclude.
     exclude: [
-        './features/**/UI.feature',
+        // './features/**/UI.feature',
         './features/**/search.feature',
-        // './features/**/navigation.feature',
-        // './features/**/login.feature',
-        // './features/**/logout.feature',
-        // './features/**/mangaAPI.feature',
+        './features/**/navigation.feature',
+        './features/**/login.feature',
+        './features/**/logout.feature',
+        './features/**/mangaAPI.feature',
         './features/**/interactionWithTitle.feature',
         
     ],

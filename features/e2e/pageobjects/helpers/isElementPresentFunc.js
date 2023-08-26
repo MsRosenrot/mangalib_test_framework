@@ -5,7 +5,7 @@ const isElementPresent = async function(elementSelector){
         return document.querySelectorAll(arguments[0])
      }, elementSelector)
       if(await !elementsArray.length){
-             throw console.error();
+            return false
       } else {
           return true
       }
