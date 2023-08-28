@@ -1,5 +1,4 @@
 import { BasePage } from "./basePage.js";
-import { isElementPresent } from "./helpers/isElementPresentFunc.js";
 
 class MainPage extends BasePage{
 get popularMangaList(){

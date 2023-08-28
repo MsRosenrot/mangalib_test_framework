@@ -1,5 +1,5 @@
-import { Given, When, Then } from '@wdio/cucumber-framework';
-import { expect, $ } from '@wdio/globals';
+import { Given, When } from '@wdio/cucumber-framework';
+import { $ } from '@wdio/globals';
 import { mainPage } from '../pageobjects/mainPage.js';
 import { header } from '../pageobjects/components/header.js';
 import loginPage from '../pageobjects/login.page.js';
@@ -7,10 +7,10 @@ import { users, devices } from '../pageobjects/helpers/constants.js';
 import { searchWindow } from '../pageobjects/components/searchWindow.js';
 import { mangaDetailsPage } from '../pageobjects/mangaDetails.page.js';
 import { readMangaPage } from '../pageobjects/readManga.page.js';
+import { myProfilePage } from '../pageobjects/myProfile.page.js';
 
 Given(/^I navigate to (.*)$/, async (url) => {
     await mainPage.navigate(url);
-        // await browser.waitUntil(() => browser.execute(() => document.readyState === 'complete'));
 })
 Given(/^I open site on (mobile|PC|tablet)$/, async(device)=>{
     if(device === 'mobile'){
@@ -41,11 +41,10 @@ Given(/^I select Popular Manga poster №(\d)$/, async function(position){
 })
 
 Given(/^I login with (valid|invalid) credentials$/, async(credentials)=>{
+    await mainPage.clickPageButton(header.enterAccountBtn)
     if(credentials === 'valid'){
-        await mainPage.clickPageButton(header.enterAccountBtn)
         await loginPage.login(users.validLogin, users.validPassword)
     } else {
-        await mainPage.clickPageButton(header.enterAccountBtn)
         await loginPage.login(users.invalidLogin, users.invalidPassword)
     }
     
@@ -76,8 +75,45 @@ When(/^I navigate chapters: (\d) chapters (forward|back)$/, async(numOfChapters,
         await readMangaPage.navigateChapter(forwardOrBack)
     }
 })
+When(/^I add manga to (.*) list$/, async function(nameOfCollection){
+    const world = this
+    world.mangaTitle = await mangaDetailsPage.mangaName
+    await mangaDetailsPage.addMangaToList(nameOfCollection)
+})
+When(/^I go to My Profile page$/, async()=>{
+    await myProfilePage.navigateToMyProfile()
+    await myProfilePage.listOfTitlesContainer.waitForClickable()
+})
+When(/^I rate title (\d\d?) points$/, async(points)=>{
+    await mangaDetailsPage.rateManga(points)
+})
+When(/^I (upvote|downvote) related title$/, async function (vote){
+    const world = this
+    world.votesCountBefore = await mangaDetailsPage.votesCountSimilar
+    if(vote === 'upvote'){
+        await mangaDetailsPage.upvoteSimilarBtn.click()
+    } else {
+        await mangaDetailsPage.downvoteSimilarBtn.click()
+    }
+    await browser.pause(1000) //Cannot find other way to wait until number changes
+    world.votesCountAfter = await mangaDetailsPage.votesCountSimilar
 
-
+})
+When(/^I go to (.*) section on manga details page$/, async(section)=>{
+    if(section === 'Comments'){
+        await mangaDetailsPage.clickPageButton(mangaDetailsPage.commentsBtn)
+    }
+})
+When(/^I (add|delete) comment with text "(.*)"$/, async function(action, text){
+    if(await mangaDetailsPage.confirmReadRulesCheckbox.isClickable()){
+        await mangaDetailsPage.confirmRulesRead()
+    }
+    if(action === 'add'){
+        await mangaDetailsPage.addComment(text)
+    } else {
+       await mangaDetailsPage.deleteCommentByText(text)
+    }
+})
 
 
 

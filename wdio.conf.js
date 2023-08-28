@@ -26,13 +26,13 @@ export const config = {
     ],
     // Patterns to exclude.
     exclude: [
-        './features/**/UI.feature',
-        './features/**/search.feature',
-        './features/**/navigation.feature',
-        './features/**/login.feature',
-        './features/**/logout.feature',
-        './features/**/mangaAPI.feature',
-        './features/**/interactionWithTitle.feature',
+        // './features/**/UI.feature',
+        // './features/**/search.feature',
+        // './features/**/navigation.feature',
+        // './features/**/login.feature',
+        // './features/**/logout.feature',
+        // './features/**/mangaAPI.feature',
+        // './features/**/interactionWithTitle.feature',
         // './features/**/readTitle.feature',
         
     ],
@@ -80,10 +80,6 @@ export const config = {
             ],
         }
     }, 
-    
-    // {
-    //     browserName: 'firefox'
-    // }
 ],
 
     //
@@ -156,7 +152,12 @@ export const config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: ['spec',['allure', {outputDir: 'allure-results'}]],
+    reporters: ['spec',['allure', {
+        outputDir: './reports/allure-results',
+        disableWebdriverStepsReporting: true,
+        disableWebdriverScreenshotsReporting: false,
+        useCucumberStepReporter: true,
+    }]],
 
     //
     // If you are using Cucumber you need to specify the location of your step definitions.
@@ -287,8 +288,12 @@ export const config = {
      * @param {number}             result.duration  duration of scenario in milliseconds
      * @param {object}             context          Cucumber World object
      */
-    // afterStep: function (step, scenario, result, context) {
-    // },
+    afterStep: async function (test, context, { error, result, duration, passed, retries }) {
+        if(!passed){
+            await browser.takeScreenshot()
+        }
+       
+    }
     /**
      *
      * Runs after a Cucumber Scenario.

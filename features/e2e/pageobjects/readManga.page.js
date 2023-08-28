@@ -11,7 +11,6 @@ class ReadMangaPage{
         } else if(forwardOrBack === 'back') {
             await this.readerHeaderActionIcons[0].click()
         }
-        // this.readerHeaderActionIcons[1].waitForClickable()
     }
 }
 

@@ -36,12 +36,12 @@ async getOtherMainMenuTabs(){
  get profileIconSelector(){
    return 'img.header-right-menu__avatar'
  }
+ get myProfileBtn(){
+  return $('.menu.header-dropdown a.menu__item:nth-child(1)')
+ }
     get enterAccountBtn(){
         return $('.button.header__sign-in')
     }
-    get enterAccountBtnSelector(){
-      return '.button.header__sign-in'
-  }
     get logoutBtn(){
         return $('#logout-button')
       }
@@ -52,11 +52,8 @@ async getOtherMainMenuTabs(){
         await this.logoutBtn.waitForDisplayed();
         await this.logoutBtn.click();
       }
-    async checkIsLoggedOut(){
-        await isElementPresent(this.enterAccountBtnSelector)
-     }
      async checkIsLoggedIn(){
-      isElementPresent(this.profileIconSelector)
+      return await isElementPresent(this.profileIconSelector)
    }
    async navigateToOtherSite(site){
   
@@ -73,5 +70,4 @@ async getOtherMainMenuTabs(){
 }
 
 const header = new Header()
-
 export { header }

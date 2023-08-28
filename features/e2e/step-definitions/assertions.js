@@ -7,7 +7,7 @@ import { mangaDetailsPage } from "../pageobjects/mangaDetails.page.js"
 import { newsPage } from "../pageobjects/newsPage.js";
 import { searchWindow } from "../pageobjects/components/searchWindow.js";
 import { isElementPresent } from "../pageobjects/helpers/isElementPresentFunc.js";
-import { readMangaPage } from "../pageobjects/readManga.page.js";
+import { myProfilePage } from "../pageobjects/myProfile.page.js";
 
 
 Then(/^I expect (login|search) error message text to be "(.*)"$/, async(flow, errorMsg)=>{
@@ -22,10 +22,10 @@ Then(/^I expect (login|search) error message text to be "(.*)"$/, async(flow, er
 })
 
 Then(/^I expect to be logged in$/, async ()=>{
-    header.checkIsLoggedIn()
+    expect(await header.checkIsLoggedIn()).to.be.true
 })
 Then(/^I expect user to be logged out of the account$/, async()=>{
-     header.checkIsLoggedOut()
+    expect(await header.checkIsLoggedIn()).to.be.false
 })
 Then(/^I expect (.*)? ?site url to contain text: (.*)$/, async(domain, text)=>{
     await expect(await browser.getUrl()).to.have.string(text)
@@ -52,7 +52,6 @@ Then(/^I expect background color to be (dark|light)$/, async(backgroundColor)=>{
     })
 
 Then(/^I expect Main Menu to contain element: (.*)$/, async(tab)=>{
-    
     
     const mainMenuTabsArray = await header.mainMenuTabs
     const otherMainMenuTabsArray = await header.getOtherMainMenuTabs()
@@ -96,4 +95,38 @@ Then(/^I expect '(.*)' element placeholder to (equal|contain): '(.*)'$/, async(s
 })
 Then(/^I expect Reader mode page to open$/, async()=>{
     expect(await isElementPresent('.reader-view')).to.be.true
+})
+Then(/^I expect manga to be added to (.*) list$/, async function(nameOfCollection) {
+    const world = this
+    const listOfTitlesInCollection = await myProfilePage.getListOfTitlesInCollection(nameOfCollection)
+    await expect(listOfTitlesInCollection).to.contain(world.mangaTitle)
+})
+Then(/^I expect element (.*) to have attribute (.*) with value (.*)$/, async(element, attribute, value)=>{
+
+    const attributeValue = await $(element).getAttribute(attribute)
+    await expect(await attributeValue).to.contain(value)
+})
+Then(/^I expect votes count to go (up|down) by 1$/, async function(vote){
+    const world = this
+    let actualVotes = Number(world.votesCountAfter)
+    let expectedVotes 
+    if(vote === 'up'){
+        expectedVotes = Number(world.votesCountBefore)+1
+    } else {
+        expectedVotes = Number(world.votesCountBefore)-1
+    }
+    await expect(actualVotes).to.be.equal(expectedVotes)
+})
+Then(/^I expect comment with text "(.*)" to (be|not be) displayed$/, async(text, isDisplayed)=>{
+
+    await browser.pause(1000) // Couldn't find other way
+    await mangaDetailsPage.commentsInputFolded.waitForClickable()
+    const comment = await mangaDetailsPage.findCommentByText(text)
+
+    if(isDisplayed === 'be'){
+        await expect(await comment.index).to.not.be.null
+    } else {
+        await expect(await comment.index).to.be.null
+    }
+    
 })
