@@ -1,8 +1,3 @@
-let HEAD = process.env.HEAD
- 
-    console.log(`Passed arg ${HEAD}`)
-
-
 export const config = {
     //
     // ====================

@@ -1,4 +1,3 @@
-@API
 Feature: API related to Manga Lists 
  
 Scenario Outline: `Check that GET request returns correct response code`

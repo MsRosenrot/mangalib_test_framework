@@ -20,7 +20,7 @@
     "afterTest": "npx allure  generate --clean ./reports/allure-results -o ./reports/allure-report",
     "regression_reports": "npm-run-all beforeTest regression --continue-on-error afterTest",
     "API_reports": "npm-run-all beforeTest API --continue-on-error afterTest",
-    "API": "wdio run ./wdio.conf.js HEAD=--headless --spec ./features/API/mangaAPI.feature ", 
+    "API": "wdio run ./wdio.conf.js --spec ./features/API/mangaAPI.feature ", 
     "regression": "wdio run ./wdio.conf.js"
   }
 }
