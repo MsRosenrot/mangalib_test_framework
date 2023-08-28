@@ -75,7 +75,6 @@ export const config = {
                 '--disable-dev-shm-usage',
                 '--disable-browser-side-navigation',
                 '--no-sandbox', //Disables the sandbox for all process types that are normally sandboxed. Meant to be used as a browser-level switch for testing purposes only.
-                `${HEAD}`
             ],
         }
     }, 
