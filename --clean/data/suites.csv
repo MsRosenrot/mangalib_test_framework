@@ -1,3 +1,0 @@
-"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"passed","Mon Aug 28 17:13:19 MSK 2023","Mon Aug 28 17:13:23 MSK 2023","4382","","Log In","","","","Check log in with invalid credentials: 'Неверный логин или пароль' error appears",""
-"passed","Mon Aug 28 17:13:23 MSK 2023","Mon Aug 28 17:13:27 MSK 2023","3989","","Log In","","","","Check that user can log in with valid credentials",""

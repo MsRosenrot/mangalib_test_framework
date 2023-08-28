@@ -1,3 +1,8 @@
+let HEAD = process.env.HEAD
+ 
+    console.log(`Passed arg ${HEAD}`)
+
+
 export const config = {
     //
     // ====================
@@ -34,7 +39,6 @@ export const config = {
         // './features/**/mangaAPI.feature',
         // './features/**/interactionWithTitle.feature',
         // './features/**/readTitle.feature',
-        
     ],
     //
     // ============
@@ -76,7 +80,7 @@ export const config = {
                 '--disable-dev-shm-usage',
                 '--disable-browser-side-navigation',
                 '--no-sandbox', //Disables the sandbox for all process types that are normally sandboxed. Meant to be used as a browser-level switch for testing purposes only.
-                // '--headless'
+                `${HEAD}`
             ],
         }
     }, 
@@ -129,8 +133,8 @@ export const config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    services: 
-        ['firefox-profile'],
+    // services: 
+    //     ['firefox-profile'],
     //
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
@@ -152,7 +156,8 @@ export const config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: ['spec',['allure', {
+    reporters: ['spec',
+    ['allure', {
         outputDir: './reports/allure-results',
         disableWebdriverStepsReporting: true,
         disableWebdriverScreenshotsReporting: false,
@@ -204,6 +209,7 @@ export const config = {
      * @param {Array.<Object>} capabilities list of capabilities details
      */
     // onPrepare: function (config, capabilities) {
+        
     // },
     /**
      * Gets executed before a worker process is spawned and can be used to initialise specific service
