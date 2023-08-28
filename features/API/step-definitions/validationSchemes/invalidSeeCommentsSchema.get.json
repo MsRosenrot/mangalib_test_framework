@@ -1,0 +1,21 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+      "detail": {
+        "type": "string",
+        "const": "post_id должно быть целым числом"
+      },
+      "status": {
+        "type": "integer"
+      },
+      "title": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "detail",
+      "status",
+      "title"
+    ]
+  }
