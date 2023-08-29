@@ -4,9 +4,9 @@ Given I navigate to https://mangalib.me/basara
 
 Scenario: Check that user is able to add title to collection
 When I login with valid credentials
-When I add manga to Читаю list
+When I add manga to Любимые list
 When I go to My Profile page
-Then I expect manga to be added to Читаю list
+Then I expect manga to be added to Любимые list
 
 
 Scenario: Check that user is able to rate title

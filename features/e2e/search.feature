@@ -7,7 +7,7 @@ Background:
     Given I click '#search-link' element 
     Then I expect '.search__input' element placeholder to equal: 'Поиск Манги'
 
-  Scenario: Check that user is able to search by Manga title
+  Scenario Outline: Check that user is able to search by Manga title: <Title>
     Given I search for Manga: <Title>
     When I click '.search__suggestions-wrap a:first-child' element
     Then I expect page title to contain <Text>

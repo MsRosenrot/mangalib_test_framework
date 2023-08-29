@@ -8,7 +8,7 @@ Feature: UI, Menu tabs and Main Page Sections
     Given I click change color theme button
     Then I expect background color to be dark
 
-  Scenario Outline: Check that Main Menu tabs are displayed correctly 
+  Scenario Outline: Check that Main Menu contains <Tab> tab  
 
     Then I expect Main Menu to contain element: <Tab>
 
@@ -22,7 +22,7 @@ Feature: UI, Menu tabs and Main Page Sections
     | Контакты |
     | Рандом   |
 
-  Scenario Outline: Check that Main Page center sections are displayed correctly
+  Scenario Outline: Check that Main Page center section has <Section> tab
 
     Then I expect Main Page to contain section: <Section>
 

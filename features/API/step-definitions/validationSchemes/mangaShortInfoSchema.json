@@ -187,24 +187,7 @@
               "type": "string"
             },
             "site_ids": {
-              "type": "array",
-              "items": [
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "integer"
-                }
-              ]
+              "type": "string"
             },
             "pivot": {
               "type": "object",
@@ -259,24 +242,7 @@
               "type": "string"
             },
             "site_ids": {
-              "type": "array",
-              "items": [
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "integer"
-                }
-              ]
+              "type": "string"
             },
             "pivot": {
               "type": "object",
@@ -331,24 +297,7 @@
               "type": "string"
             },
             "site_ids": {
-              "type": "array",
-              "items": [
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "integer"
-                }
-              ]
+              "type": "string"
             },
             "pivot": {
               "type": "object",
@@ -403,24 +352,7 @@
               "type": "string"
             },
             "site_ids": {
-              "type": "array",
-              "items": [
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "integer"
-                }
-              ]
+              "type": "string"
             },
             "pivot": {
               "type": "object",
@@ -475,24 +407,7 @@
               "type": "string"
             },
             "site_ids": {
-              "type": "array",
-              "items": [
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "integer"
-                }
-              ]
+              "type": "string"
             },
             "pivot": {
               "type": "object",
@@ -547,24 +462,7 @@
               "type": "string"
             },
             "site_ids": {
-              "type": "array",
-              "items": [
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "integer"
-                }
-              ]
+              "type": "string"
             },
             "pivot": {
               "type": "object",
@@ -619,24 +517,7 @@
               "type": "string"
             },
             "site_ids": {
-              "type": "array",
-              "items": [
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "integer"
-                }
-              ]
+              "type": "string"
             },
             "pivot": {
               "type": "object",
@@ -691,24 +572,7 @@
               "type": "string"
             },
             "site_ids": {
-              "type": "array",
-              "items": [
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "integer"
-                }
-              ]
+              "type": "string"
             },
             "pivot": {
               "type": "object",
@@ -763,24 +627,7 @@
               "type": "string"
             },
             "site_ids": {
-              "type": "array",
-              "items": [
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "integer"
-                }
-              ]
+              "type": "string"
             },
             "pivot": {
               "type": "object",
@@ -835,24 +682,7 @@
               "type": "string"
             },
             "site_ids": {
-              "type": "array",
-              "items": [
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "integer"
-                }
-              ]
+              "type": "string"
             },
             "pivot": {
               "type": "object",
@@ -907,24 +737,7 @@
               "type": "string"
             },
             "site_ids": {
-              "type": "array",
-              "items": [
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "integer"
-                }
-              ]
+              "type": "string"
             },
             "pivot": {
               "type": "object",
@@ -979,24 +792,7 @@
               "type": "string"
             },
             "site_ids": {
-              "type": "array",
-              "items": [
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "integer"
-                }
-              ]
+              "type": "string"
             },
             "pivot": {
               "type": "object",
@@ -1051,24 +847,7 @@
               "type": "string"
             },
             "site_ids": {
-              "type": "array",
-              "items": [
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "integer"
-                }
-              ]
+              "type": "string"
             },
             "pivot": {
               "type": "object",
@@ -1131,8 +910,7 @@
               "type": "null"
             },
             "site_ids": {
-              "type": "array",
-              "items": {}
+              "type": "string"
             },
             "pivot": {
               "type": "object",
@@ -1191,8 +969,7 @@
               "type": "null"
             },
             "site_ids": {
-              "type": "array",
-              "items": {}
+              "type": "string"
             },
             "pivot": {
               "type": "object",
@@ -1251,8 +1028,7 @@
               "type": "null"
             },
             "site_ids": {
-              "type": "array",
-              "items": {}
+              "type": "string"
             },
             "pivot": {
               "type": "object",
@@ -1311,8 +1087,7 @@
               "type": "null"
             },
             "site_ids": {
-              "type": "array",
-              "items": {}
+              "type": "string"
             },
             "pivot": {
               "type": "object",
@@ -1371,8 +1146,7 @@
               "type": "null"
             },
             "site_ids": {
-              "type": "array",
-              "items": {}
+              "type": "string"
             },
             "pivot": {
               "type": "object",
@@ -1431,8 +1205,7 @@
               "type": "null"
             },
             "site_ids": {
-              "type": "array",
-              "items": {}
+              "type": "string"
             },
             "pivot": {
               "type": "object",
@@ -1491,8 +1264,7 @@
               "type": "null"
             },
             "site_ids": {
-              "type": "array",
-              "items": {}
+              "type": "string"
             },
             "pivot": {
               "type": "object",
@@ -1551,8 +1323,7 @@
               "type": "null"
             },
             "site_ids": {
-              "type": "array",
-              "items": {}
+              "type": "string"
             },
             "pivot": {
               "type": "object",
@@ -1611,8 +1382,7 @@
               "type": "null"
             },
             "site_ids": {
-              "type": "array",
-              "items": {}
+              "type": "string"
             },
             "pivot": {
               "type": "object",
@@ -1671,8 +1441,7 @@
               "type": "null"
             },
             "site_ids": {
-              "type": "array",
-              "items": {}
+              "type": "string"
             },
             "pivot": {
               "type": "object",

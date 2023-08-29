@@ -1,8 +1,9 @@
 import { Then } from "@wdio/cucumber-framework";
-import { assert, expect } from "chai";
+import { expect } from "chai";
 import validator from "jsonschema";
 import searchMangaSchema from "./validationSchemes/searchManga.get.json" assert { type: 'json' };
 import seeCommentsSchema from "./validationSchemes/seeComments.get.json" assert { type: 'json' };
+import seeCommentsInvalidSchema from "./validationSchemes/seeCommentsInvalidSchema.json" assert { type: 'json' };
 import invalidSeeCommentsSchema from "./validationSchemes/invalidSeeCommentsSchema.get.json" assert { type: 'json' };
 import mangaShortInfoSchema from "./validationSchemes/mangaShortInfoSchema.json" assert { type: 'json' };
 
@@ -22,6 +23,8 @@ Then(/^I expect JSON schema to equal (.*)$/, async function(nameOfSchema){
         JSONSchema = invalidSeeCommentsSchema
     } else if(nameOfSchema === 'mangaShortInfoSchema'){
         JSONSchema = mangaShortInfoSchema
+    } else if(nameOfSchema === 'seeCommentsInvalidSchema'){
+        JSONSchema = seeCommentsInvalidSchema
     }
     const isValid = validator.validate(world.response.data, JSONSchema).valid
     expect(isValid).to.be.true

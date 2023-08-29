@@ -3,7 +3,7 @@ Feature: Navigation outside and within site
 Background:
   Given I navigate to https://mangalib.me/
 
-  Scenario: Check that user is able to navigate to different site domain
+  Scenario Outline: Check that user is able to navigate to <Domain> site domain
     Given I navigate at different domain: <Domain>
     Then I expect <Domain> site url to contain text: <Text>
 
@@ -13,7 +13,7 @@ Background:
   | RanobeLib  | ranobelib.me |
   | AnimeLib   | animelib.me  |
 
-Scenario Outline: Check that user is able to navigate within site
+Scenario Outline: Check that user is able to navigate to <Tab> tab
     Given I click main menu tab: <Tab>
     Then I expect <Tab> site url to contain text: <Text>
 
@@ -22,7 +22,7 @@ Examples:
   | Forum      | forum |
   | FAQ        | faq   |
 
-  Scenario Outline: Check that user is able to open a Popular Manga page from Main Page
+  Scenario Outline: Check that user is able to open a Popular Manga (№ <number> in list) from Main Page
     Given I select Popular Manga poster №<number>
     Then I expect page title to contain selected manga name
 
