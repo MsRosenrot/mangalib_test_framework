@@ -1,0 +1,14 @@
+{
+  "type": "module",
+  "scripts": {
+    "API": "mocha --reporter allure-mocha",
+    "report": "npx allure  generate --clean ./allure-results -o ./reports/allure-report"
+  },
+  "dependencies": {
+    "allure-mocha": "^2.6.0",
+    "mocha": "^10.2.0"
+  },
+  "devDependencies": {
+    "allure-commandline": "^2.24.0"
+  }
+}

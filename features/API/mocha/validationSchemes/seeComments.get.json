@@ -1,0 +1,156 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+      "comments": {
+        "type": "array",
+        "items": [
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer"
+              },
+              "root_id": {
+                "type": "integer"
+              },
+              "parent_comment": {
+                "type": "integer"
+              },
+              "comment_level": {
+                "type": "integer"
+              },
+              "page_id": {
+                "type": "integer"
+              },
+              "votes_up": {
+                "type": "integer"
+              },
+              "votes_down": {
+                "type": "integer"
+              },
+              "deleted": {
+                "type": "integer"
+              },
+              "comment": {
+                "type": "string"
+              },
+              "created_at": {
+                "type": "string"
+              },
+              "updated_at": {
+                "type": "string"
+              },
+              "user": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer"
+                  },
+                  "avatar": {
+                    "type": "string"
+                  },
+                  "username": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "avatar",
+                  "username"
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "root_id",
+              "parent_comment",
+              "comment_level",
+              "page_id",
+              "votes_up",
+              "votes_down",
+              "deleted",
+              "comment",
+              "created_at",
+              "updated_at",
+              "user"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer"
+              },
+              "root_id": {
+                "type": "integer"
+              },
+              "parent_comment": {
+                "type": "integer"
+              },
+              "comment_level": {
+                "type": "integer"
+              },
+              "page_id": {
+                "type": "integer"
+              },
+              "votes_up": {
+                "type": "integer"
+              },
+              "votes_down": {
+                "type": "integer"
+              },
+              "deleted": {
+                "type": "integer"
+              },
+              "comment": {
+                "type": "string"
+              },
+              "created_at": {
+                "type": "string"
+              },
+              "updated_at": {
+                "type": "string"
+              },
+              "user": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer"
+                  },
+                  "avatar": {
+                    "type": "string"
+                  },
+                  "username": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "avatar",
+                  "username"
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "root_id",
+              "parent_comment",
+              "comment_level",
+              "page_id",
+              "votes_up",
+              "votes_down",
+              "deleted",
+              "comment",
+              "created_at",
+              "updated_at",
+              "user"
+            ]
+          }
+        ]
+      }
+    },
+    "required": [
+      "comments"
+    ]
+  }
