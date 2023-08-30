@@ -4,7 +4,6 @@ import validator from "jsonschema";
 import searchMangaSchema from "./validationSchemes/searchManga.get.json" assert { type: 'json' };
 import seeCommentsSchema from "./validationSchemes/seeComments.get.json" assert { type: 'json' };
 import seeCommentsInvalidSchema from "./validationSchemes/seeCommentsInvalidSchema.json" assert { type: 'json' };
-import invalidSeeCommentsSchema from "./validationSchemes/invalidSeeCommentsSchema.get.json" assert { type: 'json' };
 import mangaShortInfoSchema from "./validationSchemes/mangaShortInfoSchema.json" assert { type: 'json' };
 
 
@@ -15,17 +14,25 @@ Then(/^I expect response code to be (.*)$/, async function(code){
 Then(/^I expect JSON schema to equal (.*)$/, async function(nameOfSchema){
     const world = this
     let JSONSchema
-    if(nameOfSchema === 'searchMangaSchema'){
-        JSONSchema = searchMangaSchema
-    } else if(nameOfSchema === 'seeCommentsSchema'){
-        JSONSchema = seeCommentsSchema
-    } else if(nameOfSchema === 'invalidSeeCommentsSchema'){
-        JSONSchema = invalidSeeCommentsSchema
-    } else if(nameOfSchema === 'mangaShortInfoSchema'){
-        JSONSchema = mangaShortInfoSchema
-    } else if(nameOfSchema === 'seeCommentsInvalidSchema'){
-        JSONSchema = seeCommentsInvalidSchema
+    switch(nameOfSchema){
+
+        case 'searchMangaSchema':
+            JSONSchema = searchMangaSchema;
+            break;
+
+        case 'seeCommentsSchema':
+            JSONSchema = seeCommentsSchema;
+            break;
+
+        case 'seeCommentsInvalidSchema':
+            JSONSchema = seeCommentsInvalidSchema;
+            break;
+
+        case 'mangaShortInfoSchema':
+            JSONSchema = mangaShortInfoSchema;
+            break;
     }
+    
     const isValid = validator.validate(world.response.data, JSONSchema).valid
     expect(isValid).to.be.true
 })

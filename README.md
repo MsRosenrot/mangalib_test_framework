@@ -2,12 +2,13 @@
 This is the final project for IT-academy Automation QA on JS course
 
 Testing type:
-- web e2e
-- API
+- UI (web e2e)
+- integration (API)
 
 Test frameworks used:
 - wdio
-- cucumber
+- cucumber (e2e & API)
+- mocha (API)
 
 API lib:
 - axios
@@ -21,5 +22,4 @@ Reporter:
 
 Browsers:
 - Chrome
-- Firefox???
 

@@ -1,10 +1,10 @@
-import { BasePage } from "./basePage.js";
+import { BasePage } from './basePage.js';
 
-class NewsPage extends BasePage{
-    get newsPageTitle(){
-        return $('h1')
-    }
+class NewsPage extends BasePage {
+  get newsPageTitle() {
+    return $('h1');
+  }
 }
 
-let newsPage = new NewsPage()
-export {newsPage}
+const newsPage = new NewsPage();
+export { newsPage };
