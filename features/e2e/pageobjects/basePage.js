@@ -6,7 +6,6 @@ class BasePage{
     async clickPageButton(button) {
         await button.waitForDisplayed();
         await button.click();
-        // await browser.execute(() => document.readyState === 'complete');
       }
     
 }

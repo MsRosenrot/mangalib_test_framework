@@ -17,11 +17,12 @@
   },
   "scripts": {
     "beforeTest": "rimraf ./reports/allure-results && rimraf ./reports/allure-report && rimraf test-screenshots && rimraf wdio-logs",
-    "afterTest": "npx allure  generate --clean ./reports/allure-results -o ./reports/allure-report",
-    "regression_reports": "npm-run-all beforeTest regression --continue-on-error afterTest",
-    "API_reports": "npm-run-all beforeTest API:cucumber --continue-on-error afterTest",
-    "API:cucumber": "wdio run ./wdio.conf.js --spec ./features/API/mangaAPI_positive.feature ./features/API/mangaAPI_negative.feature", 
+    "afterRegression": "npx allure  generate --clean ./reports/allure-results -o ./reports/e2e/regression",
+    "afterAPI": "npx allure  generate --clean ./reports/allure-results -o ./reports/API/API_cucumber",
+    "regression": "npm-run-all beforeTest regression_no_reporting --continue-on-error afterRegression",
+    "API:cucumber": "npm-run-all beforeTest API_cucumber_no_reporting --continue-on-error afterAPI",
     "API:mocha": "cd ./features/API/mocha && npm run API",
-    "regression": "wdio run ./wdio.conf.js"
+    "API_cucumber_no_reporting": "wdio run ./wdio.conf.js --spec ./features/API/mangaAPI_positive.feature ./features/API/mangaAPI_negative.feature", 
+    "regression_no_reporting": "wdio run ./wdio.conf.js"
   }
 }

@@ -31,7 +31,7 @@ describe('API related to Manga Lists - positive cases', async()=>{
             })
         })
     requests.forEach(({API, JSONSchema})=>{
-            it(`Check that GET ${API} response returns body matching ${JSONSchema}`, async()=>{
+            it(`Check that GET ${API} response returns body matching its JSONSchema`, async()=>{
                 let response
             try{
                 response = await axios({
