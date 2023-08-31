@@ -113,7 +113,7 @@ Then(/^I expect votes count to go (up|down) by 1$/, async function (vote) {
   await expect(actualVotes).to.be.equal(expectedVotes);
 });
 Then(/^I expect comment with text "(.*)" to (be|not be) displayed$/, async (text, isDisplayed) => {
-  await browser.pause(1000); // Couldn't find other way
+  await browser.pause(1000); 
   await mangaDetailsPage.commentsInputFolded.waitForClickable();
   const comment = await mangaDetailsPage.findCommentByText(text);
 

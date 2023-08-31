@@ -13,13 +13,20 @@ Given(/^I navigate to (.*)$/, async (url) => {
   await mainPage.navigate(url);
 });
 Given(/^I open site on (mobile|PC|tablet)$/, async (device) => {
-  if (device === 'mobile') {
-    browser.setWindowSize(devices.mobile.width, devices.mobile.height);
-  } else if (device === 'PC') {
-    browser.setWindowSize(devices.PC.width, devices.PC.height);
-  } else if (device === 'tablet') {
-    browser.setWindowSize(devices.tablet.width, devices.tablet.height);
-  }
+    switch(device){
+
+        case 'mobile':
+            browser.setWindowSize(devices.mobile.width, devices.mobile.height);
+            break;
+
+        case 'PC':
+            browser.setWindowSize(devices.PC.width, devices.PC.height);
+            break;
+
+        case 'tablet':
+            browser.setWindowSize(devices.tablet.width, devices.tablet.height);
+            break;
+    }
 });
 Given(/^I navigate at different domain: (RanobeLib|AnimeLib)$/, async (site) => {
   await header.navigateToOtherSite(site);
@@ -92,7 +99,7 @@ When(/^I (upvote|downvote) related title$/, async function (vote) {
   } else {
     await mangaDetailsPage.downvoteSimilarBtn.click();
   }
-  await browser.pause(1000); // Cannot find other way to wait until number changes
+  await browser.pause(1000);
   world.votesCountAfter = await mangaDetailsPage.votesCountSimilar;
 });
 When(/^I go to (.*) section on manga details page$/, async (section) => {

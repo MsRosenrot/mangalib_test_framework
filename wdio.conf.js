@@ -4,13 +4,7 @@ export const config = {
         './features/**/*.feature',
     ],
     exclude: [
-        './features/**/UI.feature',
-        // './features/**/search.feature',
-        './features/**/navigation.feature',
-        './features/**/login.feature',
-        './features/**/logout.feature',
-        './features/**/interactionWithTitle.feature',
-        './features/**/readTitle.feature',
+
     ],
     maxInstances: 10,
     capabilities: [{
@@ -76,10 +70,6 @@ export const config = {
         timeout: 60000,
         // <boolean> Enable this config to treat undefined definitions as warnings.
         ignoreUndefinedDefinitions: false
-    },
-    mochaOpts: {
-        ui: 'bdd',
-        timeout: 60000
     },
     
     /**
